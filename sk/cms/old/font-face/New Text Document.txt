@@ -1,0 +1,10 @@
+<style type="text/css">
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(font-face/Clio_XS_Medium.otf);
+}
+
+body { font-family: myFirstFont;}
+
+</style>
