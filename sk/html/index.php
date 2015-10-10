@@ -48,6 +48,7 @@ http://www.templatemo.com/preview/templatemo_395_urbanic
 .profile1 p {
 	display: none;
 }
+.address .col-sm-3 { height:300px}
 </style>
 </head>
 
@@ -115,18 +116,27 @@ http://www.templatemo.com/preview/templatemo_395_urbanic
 
 <div class="templatemo-welcome" id="templatemo-welcome">
   <div class="container">
-    <div class="templatemo-slogan text-center"> <span class="txt_darkgrey">INTRODUCTION </span>
+  <?php
+                include("dbconnect.php");
+				$query  = "SELECT title, description FROM introduction ORDER BY listorder ASC";
+				$result = mysql_query($query);
+				while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+				{
+					
+				$title = stripslashes($row['title']);
+				$description = stripslashes($row['description']);
+				
+				?>
+    <div class="templatemo-slogan text-center"> <span class="txt_darkgrey"><?php echo $title; ?> </span>
       <p class="txt_slogan"></p>
       <div class="row para">
         <div class="col-sm-12">
-          <p>S. K. Legal Associates is a professionally managed law firm committed to provide the best legal services to its clients by understanding and analyzing the issues  and finding effective and practical  commercial solutions in consonance with the applicable laws. Our strength lies in our skills, specialized professional experience, practical approach, timely delivery and commitment to serve our clients. . 
-We are having the sufficientinfrastructure, competent and knowledgeable Advocates, Solicitors and Advocate on Record, Court clerks for serving our clients, lists whereof are given herein.
-
-Our office is strategically located in South Bombay, close to High Court, City Civil Court, Bombay Stock Exchange, Sub-Registrar of Assurances, Bombay Stamp Office and Reserve Bank of India and also within the periphery of Small Causes Court, Co-Operative Court, and  DRTs and DRAT , Mumbai.
+          <p><?php echo $description; ?>
 </p>
         </div>
       </div>
     </div>
+     <?php } ?>
   </div>
 </div>
 <div class="container todo" id="wedo">
@@ -317,83 +327,38 @@ He has been consultant to various Builders & Developers for the purpose of docum
 <div>&nbsp;</div>
 <div class="container" id="offices">
   <div class="row address">
+  <?php
+                include("dbconnect.php");
+				$query  = "SELECT id, Branch, Name1, Name2, Profession, Address, Phone1, Phone2, Email FROM associateoffices ORDER BY listorder ASC";
+				$result = mysql_query($query);
+				while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+				{
+					
+				$id = stripslashes($row['id']);
+				$Branch = stripslashes($row['Branch']);
+				$Name1 = stripslashes($row['Name1']);
+				$Name2 = stripslashes($row['Name2']);
+				$Profession = stripslashes($row['Profession']);
+				$Address = stripslashes($row['Address']);
+				$Phone1 = stripslashes($row['Phone1']);
+				$Phone2 = stripslashes($row['Phone2']);
+				$Email = stripslashes($row['Email']);
+
+				
+				?>
     <div class="col-sm-3 text-left">
-      <h4>Pune Office address:</h4>
-      <p>Mr. Madhukar M. Mokashi, Advocate,</p>
-      <p>S. No. 16/1A, Ustad Hamid Khan Building,</p>
-      <p>Near Acharya Society, Warje Naka(old),</p>
-      <p>Warje, Pune -411058.</p>
-      <p>Phone:- 020-25231522</p>
-      <p>Mobile:- 0-9422031063</p>
+   
+      <h3><?php echo $Branch; ?></h3>
+      <p><?php echo $Name1; ?></p>
+      <p><?php echo $Name2; ?></p>
+      <p><?php echo $Profession; ?></p>
+      <p><?php echo $Address; ?></p>
+      <p><?php echo $Phone1; ?></p>
+      <p><?php echo $Phone2; ?></p>
+      <p><?php echo $Email; ?></p>
     </div>
-    <div class="col-sm-3 text-left">
-      <h4>Chennai  Office address:</h4>
-      <p>Mr. U. Ashok Kumar,</p>
-      <p>Mrs. U. Priyadarshini</p>
-      <p>Advocates</p>
-      <p>2/784, 1st Street, Kazura Garden,</p>
-      <p>Neelankarai,</p>
-      <p>Chennai – 600 041</p>
-    </div>
-    <div class="col-sm-3 text-left">
-      <h4>Kolkata  Office address:</h4>
-      <p>Mr,Soudip Palchoudhary,</p>
-      <p>Advocate,</p>
-      <p>10 K S Roy Road,</p>
-      <p>Kolkata – 700 001.</p>
-    </div>
-    <div class="col-sm-3 text-left">
-      <h4>Bengaluru  Office address:</h4>
-      <p> Mr.K. Prashant Kumar,</p>
-      <p>Advocate,</p>
-      <p>739, Cellar Floor,</p>
-      <p>60th Cross, Near Bhashyam Circle,</p>
-      <p>5th Block,</p>
-      <p>Rajaji Nagar,</p>
-      <p>Bangalore – 560 010</p>
-      <p>Email : prashanthkumarkavoor@gmail.com</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3 text-left">
-      <h4>Hyderabad Office address:</h4>
-      <p>Mr. Laxminarayana,</p>
-      <p>Advocate,</p>
-      <p>Flat No.203, Saikrishna Residency,</p>
-      <p>Aravindnagar</p>
-      <p>Domalguda,</p>
-      <p>Hydrabad – 500 029</p>
-      <p>Tel: 040 66626496</p>
-      <p>Email: laxminarayana_adv@yahoo.co.in</p>
-    </div>
-    <div class="col-sm-3 text-left">
-      <h4>Kochi Office Address:</h4>
-      <p>Mr.Abu Mathew,</p>
-      <p>Advocate,</p>
-      <p>39/4367-J, 2nd Floor,</p>
-      <p>Cherry’s Building,</p>
-      <p>Manikkiri Building,</p>
-      <p>Ernakulam South,</p>
-      <p>Kochi - 16</p>
-    </div>
-    <div class="col-sm-3 text-left">
-      <h4>Kozhikode Office Address:</h4>
-      <p>Mr. Deepu B.V,</p>
-      <p>Advocate,</p>
-      <p>Puthiyedath  Arcade</p>
-      <p>Kozhikode</p>
-      <p>Kerala -673006</p>
-      <p>Mobile:  +919847345764</p>
-    </div>
-    <div class="col-sm-3 text-left">
-      <h4>Jaipur Office Address:</h4>
-      <p>Mr.  OM Prakash  Pareek,</p>
-      <p>Advocate:</p>
-      <p>A -9 Gyatri Nagar Sodala</p>
-      <p>Jaipur, Rajesthan.</p>
-      <p>M- 9314504587</p>
-      <p>M- 9782718281</p>
-    </div>
+     <?php } ?>
+
   </div>
 </div>
 
@@ -425,19 +390,24 @@ He has been consultant to various Builders & Developers for the purpose of docum
 <div class="modal fade" id="DISCLAIMER" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+    <?php
+                include("dbconnect.php");
+				$query  = "SELECT id, title, description FROM disclaimer ORDER BY id ASC";
+				$result = mysql_query($query);
+				while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+				{
+					
+				$title = stripslashes($row['title']);
+				$description = stripslashes($row['description']);
+				?>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">DISCLAIMER</h4>
+        <h4 class="modal-title" id="myModalLabel">   <?php echo $title; ?></h4>
       </div>
       <div class="modal-body">
-        <p>By accessing this website, the User expressly acknowledges that:
-          
-          » This website will not be construed as an advertisement, personal communication, solicitation, invitation or inducement of any nature whatsoever, by the firm, its partner or associates, to promote its services or solicit clients.
-          
-          » The User intends to obtain information made available on this website solely for his/her personal information and use.
-          
-          » The User is accessing this website out of his own volition and that the firm will not be liable for the consequences of any reliance placed on the information made available on this website, its use, transmission, distribution or dissemination in any manner. </p>
+        <p>   <?php echo $description; ?></p>
       </div>
+       <?php } ?>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">ACCEPT </button>
       </div>
